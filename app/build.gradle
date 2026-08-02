@@ -81,7 +81,7 @@ dependencies {
     // Scope request API is stable since service 101; this keeps compileSdk 36 compatibility.
     // service 102 requires compileSdk 37; service 101 provides the same scope and
     // RemotePreferences contract while the module entry itself targets API 102.
-    implementation 'io.github.libxposed:service:101.0.0'
+    implementation 'io.github.libxposed:service:102.0.0'
     implementation 'com.google.android.material:material:1.14.0'
     testImplementation 'junit:junit:4.13.2'
 }
