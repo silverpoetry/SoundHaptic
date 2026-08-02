@@ -1,0 +1,6 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <color name="soundhaptic_primary">#4956B7</color>
+    <color name="soundhaptic_secondary">#386A73</color>
+    <color name="icon_background">#071640</color>
+</resources>

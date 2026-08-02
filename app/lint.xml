@@ -1,0 +1,18 @@
+<?xml version="1.0" encoding="utf-8"?>
+<lint>
+    <!-- Hidden framework access is the deliberate interoperability boundary of this Xposed
+         module. Every lookup is signature-checked, scoped and protected at runtime. -->
+    <issue id="PrivateApi,DiscouragedPrivateApi">
+        <ignore path="src/main/java/com/weicheng/soundhaptic/hook" />
+    </issue>
+    <!-- The ImageGen artwork intentionally contains its own full-bleed background and remains
+         inside the adaptive launcher mask on the Android 16-only target. -->
+    <issue id="IconLauncherShape">
+        <ignore path="src/main/res/drawable-nodpi/ic_launcher_art.png" />
+    </issue>
+    <!-- service 102 requires compileSdk 37. The API102 module entry uses the compileOnly API
+         artifact; companion scope and preference calls deliberately stay on service 101. -->
+    <issue id="NewerVersionAvailable">
+        <ignore path="build.gradle" />
+    </issue>
+</lint>

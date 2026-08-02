@@ -1,0 +1,87 @@
+plugins {
+    id 'com.android.application'
+}
+
+def releaseStorePath = System.getenv('SOUNDHAPTIC_KEYSTORE_PATH')
+def releaseStorePassword = System.getenv('SOUNDHAPTIC_KEYSTORE_PASSWORD')
+def releaseKeyAlias = System.getenv('SOUNDHAPTIC_KEY_ALIAS')
+def releaseKeyPassword = System.getenv('SOUNDHAPTIC_KEY_PASSWORD')
+def releaseSigningConfigured = [
+        releaseStorePath,
+        releaseStorePassword,
+        releaseKeyAlias,
+        releaseKeyPassword
+].every { it != null && !it.isBlank() }
+
+android {
+    namespace 'com.weicheng.soundhaptic'
+    compileSdk 36
+
+    defaultConfig {
+        applicationId 'com.weicheng.soundhaptic'
+        minSdk 36
+        targetSdk 36
+        versionCode 31
+        versionName '1.6.0'
+    }
+
+    signingConfigs {
+        if (releaseSigningConfigured) {
+            release {
+                storeFile file(releaseStorePath)
+                storePassword releaseStorePassword
+                keyAlias releaseKeyAlias
+                keyPassword releaseKeyPassword
+                enableV1Signing true
+                enableV2Signing true
+                enableV3Signing true
+                enableV4Signing true
+            }
+        }
+    }
+
+    buildTypes {
+        debug {
+            applicationIdSuffix '.debug'
+            versionNameSuffix '-debug'
+        }
+        release {
+            minifyEnabled false
+            if (releaseSigningConfigured) {
+                signingConfig signingConfigs.release
+            }
+            proguardFiles getDefaultProguardFile('proguard-android-optimize.txt'), 'proguard-rules.pro'
+        }
+    }
+
+    compileOptions {
+        sourceCompatibility JavaVersion.VERSION_17
+        targetCompatibility JavaVersion.VERSION_17
+    }
+
+    buildFeatures {
+        viewBinding true
+    }
+
+    lint {
+        abortOnError true
+        checkReleaseBuilds true
+        warningsAsErrors true
+    }
+
+    packaging {
+        resources {
+            merges += 'META-INF/xposed/*'
+        }
+    }
+}
+
+dependencies {
+    compileOnly 'io.github.libxposed:api:102.0.0'
+    // Scope request API is stable since service 101; this keeps compileSdk 36 compatibility.
+    // service 102 requires compileSdk 37; service 101 provides the same scope and
+    // RemotePreferences contract while the module entry itself targets API 102.
+    implementation 'io.github.libxposed:service:101.0.0'
+    implementation 'com.google.android.material:material:1.14.0'
+    testImplementation 'junit:junit:4.13.2'
+}

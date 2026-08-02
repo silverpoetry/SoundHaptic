@@ -1,0 +1,12 @@
+.gradle/
+.idea/
+local.properties
+**/build/
+build/
+dist/
+autoeq_output/
+*.iml
+*.jks
+*.keystore
+*.properties.local
+hs_err_pid*.log

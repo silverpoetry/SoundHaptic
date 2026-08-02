@@ -1,0 +1,62 @@
+name: Bug report
+description: Report a reproducible compatibility, playback or system integration problem
+title: "[Bug] "
+labels: [bug]
+body:
+  - type: checkboxes
+    attributes:
+      label: Safety and scope
+      options:
+        - label: I can recover the device if a privileged process fails.
+          required: true
+        - label: I use an official release from this repository.
+          required: true
+        - label: I removed personal data from logs and screenshots.
+          required: true
+  - type: input
+    attributes:
+      label: Device and codename
+      placeholder: 24018RPACC / sheng
+    validations:
+      required: true
+  - type: input
+    attributes:
+      label: ROM and Android version
+    validations:
+      required: true
+  - type: input
+    attributes:
+      label: SoundHaptic and Xposed versions
+    validations:
+      required: true
+  - type: textarea
+    attributes:
+      label: Reproduction steps
+    validations:
+      required: true
+  - type: textarea
+    attributes:
+      label: Expected and actual behavior
+    validations:
+      required: true
+  - type: textarea
+    attributes:
+      label: SoundHaptic logcat
+      render: text
+    validations:
+      required: true
+## What changed
+
+## Why
+
+## Impact and compatibility
+
+## Evidence
+
+## Validation
+
+- [ ] `testDebugUnitTest`
+- [ ] `lintRelease`
+- [ ] `assembleRelease`
+- [ ] Real-device behavior verified where applicable
+- [ ] No vendor APK, framework dump, personal identifier or signing material included

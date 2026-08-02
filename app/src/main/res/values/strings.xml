@@ -1,0 +1,32 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <string name="app_name">SoundHaptic 声音触感</string>
+    <string name="app_name_short">SoundHaptic</string>
+    <string name="app_description">在无振动马达设备上，将系统振动请求转换为扬声器机械触感脉冲</string>
+    <string name="module_connecting">正在连接 LSPosed</string>
+    <string name="module_status_format">%1$s · %2$s</string>
+    <string name="scope_waiting_confirmation">等待 LSPosed 确认</string>
+    <string name="repair">修复</string>
+    <string name="section_haptic">触感输出</string>
+    <string name="enabled_title">声音触感</string>
+    <string name="enabled_summary">将系统振动转换为扬声器反馈</string>
+    <string name="volume_title">触感音量</string>
+    <string name="frequency_title">共振频率</string>
+    <string name="duration_title">脉冲时长</string>
+    <string name="strength_title">触感力度</string>
+    <string name="tuning_title">机械质感</string>
+    <string name="tuning_summary_format">%1$s · %2$d Hz · %3$d ms</string>
+    <string name="shape_title">波形</string>
+    <string name="speaker_title">内置扬声器</string>
+    <string name="speaker_summary">忽略耳机和蓝牙输出</string>
+    <string name="section_test">触感测试</string>
+    <string name="preview_current">试听当前参数</string>
+    <string name="sweep_test">扫频测试</string>
+    <string name="stop">停止</string>
+    <string name="settings_auto_apply">更改会自动应用</string>
+    <string name="settings_applied">已应用</string>
+    <string name="settings_save_failed">应用失败</string>
+    <string name="settings_waiting">等待 LSPosed 服务</string>
+    <string name="volume_muted">静音</string>
+    <string name="version_format">v%1$s · API 102</string>
+</resources>
