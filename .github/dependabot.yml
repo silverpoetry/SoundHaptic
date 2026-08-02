@@ -5,6 +5,14 @@ updates:
     schedule:
       interval: monthly
     open-pull-requests-limit: 5
+    ignore:
+      # These next major versions require a coordinated compileSdk/AGP migration.
+      - dependency-name: com.android.application
+        update-types: [version-update:semver-major]
+      - dependency-name: gradle-wrapper
+        update-types: [version-update:semver-major]
+      - dependency-name: io.github.libxposed:service
+        update-types: [version-update:semver-major]
   - package-ecosystem: github-actions
     directory: /
     schedule:
